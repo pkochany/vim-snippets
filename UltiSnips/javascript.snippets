@@ -1,5 +1,32 @@
 priority -50
 
+
+# ===== JQUERY =====
+snippet jq_document_ready "jQuery document ready function"
+$(document).ready(function() {
+
+});
+endsnippet
+
+snippet jq_ajax_call "jQuery Ajax call function"
+$('.edytuj').click(function(e){
+    var ${1:$variable_1} = ;
+    var ${2:$variable_2} = ; 
+
+    $.ajax({
+        url: ${3:url},
+        method: ${4:"POST"},
+        data: {
+            ${5:req_data_1}: ${1:$variable_1},
+            ${6:req_data_2}: ${2:$variable_2}
+        },
+        success: function (html) {
+            ${7:target_element}.html(html);
+        }
+    });
+});
+endsnippet
+
 ############
 #  COMMON  #
 ############

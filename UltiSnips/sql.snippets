@@ -1,0 +1,49 @@
+
+# ===== SQL =====
+snippet sql_add_column "Add column to table."
+ALTER TABLE ${1:table}
+ADD COLUMN ${2:column} ${3:data_type};
+endsnippet
+
+snippet sql_add_foreign_key "Add foreign key to database table."
+ALTER TABLE ${1:table} ADD COLUMN ${2:idcolumn} INT REFERENCES ${3:table2}(id);
+endsnippet
+
+snippet sql_changetype "Change column type in a table."
+ALTER TABLE ${1:table}
+ALTER COLUMN ${2:column} TYPE ${3:data_type};
+endsnippet
+
+snippet sql_default "Change or remove default value from column."
+ALTER TABLE ${1:table} ALTER COLUMN ${2:column} ${3:SET DEFAULT default_value} ${4:DROP DEFAULT};
+endsnippet
+
+snippet sql_dropcolumn "Drop column from table."
+ALTER TABLE ${1:table}
+DROP COLUMN ${2:column};
+endsnippet
+
+snippet sql_FDMcreatetable "Creating table for FDM with 1 relation (pacj)."
+CREATE TABLE ${1:table} (
+    id SERIAL PRIMARY KEY,
+    bool BOOLEAN DEFAULT true,
+    date TIMESTAMP WITHOUT TIME ZONE,
+    integer INTEGER,
+    def_now TIMESTAMP WITHOUT TIME ZONE DEFAULT now(),
+    varchar CHARACTER VARYING(100),
+    text TEXT,
+
+    FOREIGN KEY (key_in_this_table) REFERENCES public.some_other_table (key_in_some_other_table),
+);
+endsnippet
+
+snippet sql_insertinto "Insert into."
+INSERT INTO table (${1:column_1}, ${2:column_2})
+VALUES (${3:data_1}, ${4:data_2});
+endsnippet
+
+snippet sql_update "Update."
+UPDATE ${1:table}
+SET ${2:column_1} = ${3:value_1}, ${4:column_2} = ${5:value2}
+WHERE ${6:condition};
+endsnippet

@@ -1,0 +1,32 @@
+
+# ===== ORM =====
+snippet yml_orm_manyToMany "Doctrine many to many sample."
+manyToMany:
+    ${1:entityName}
+    targetEntity: ${2:xxx/xxx}
+        joinTable:
+            name: ${3:connecting_table}
+	    joinColumns:
+                ${4:current_foreign_key}:
+                    referencedColumnName: ${5:referenced_key}
+            inverseJoinColumns:
+                ${6:target_foreign_key}:
+                    referencedColumnName: ${7:target_key}
+        cascade: [persist]
+endsnippet
+
+snippet yml_orm_manyToOne "Doctrine many to one sample."
+manyToOne:
+  ${1:connection_name}:
+    targetEntity: ${2:xxx/xxx}
+    joinColumn: { name: ${3:foreign_key} }
+    inversedBy: ${4:inversed_connection_name}
+endsnippet
+
+snippet yml_orm_oneToMany "Doctrine one to many sample."
+oneToMany:
+  ${1:connection_name}:
+    targetEntity: ${2:xxx/xxx}
+    mappedBy: ${3:inversed_connection_name}
+endsnippet
+
